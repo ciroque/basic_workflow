@@ -1,14 +1,15 @@
-defmodule TerminalDisplayConsumer do
+defmodule BW.Pipeline.TerminalDisplayConsumer do
   @moduledoc false
   
   use GenStage
 
   def start_link() do
-    GenStage.start_link(__MODULE__, :ok, nane: __MODULE__)
+    GenStage.start_link(__MODULE__, :ok, name: __MODULE__)
   end
 
   def init(:ok) do
-    {:consumer, :nothing, subscribe_to: [PersistenceProducerConsumer]}
+#    {:consumer, :nothing, subscribe_to: [PersistenceProducerConsumer]}
+    {:consumer, :nothing}
   end
 
   def handle_events(events, from, state) do

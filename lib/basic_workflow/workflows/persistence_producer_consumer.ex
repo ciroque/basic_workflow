@@ -1,4 +1,4 @@
-defmodule PersistenceProducerConsumer do
+defmodule BW.Pipeline.PersistenceProducerConsumer do
   @moduledoc false
 
   use GenStage
@@ -8,7 +8,8 @@ defmodule PersistenceProducerConsumer do
   end
 
   def init(records) do
-    {:producer_consumer, records, subscribe_to: [DataSourceProducer] }
+#    {:producer_consumer, records, subscribe_to: [DataSourceProducer] }
+    {:producer_consumer, records}
   end
 
   def handle_events(events, from, records) do

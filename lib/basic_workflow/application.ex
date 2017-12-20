@@ -15,9 +15,9 @@ defmodule BasicWorkflow.Application do
     ]
 
     workflow = [
-      worker(DataSourceProducer, [0]),
-      worker(PersistenceProducerConsumer, [[]]),
-      worker(TerminalDisplayConsumer, []),
+      worker(BW.Pipeline.DataSourceProducer, [0]),
+      worker(BW.Pipeline.PersistenceProducerConsumer, [[]]),
+      worker(BW.Pipeline.TerminalDisplayConsumer, []),
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

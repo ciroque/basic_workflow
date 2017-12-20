@@ -1,10 +1,10 @@
-defmodule DataSourceProducer do
+defmodule BW.Pipeline.DataSourceProducer do
   @moduledoc false
 
   use GenStage
 
   def start_link(seed) do
-    GenStage.start_link(DataSourceProducer, seed, name: __MODULE__)
+    GenStage.start_link(__MODULE__, seed, name: __MODULE__)
   end
 
   def init(seed) do
